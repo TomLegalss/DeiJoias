@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat com ADM</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #001a33, #000000);
+  color: white;
+  min-height: 100vh;
+}
+
+header {
+  background: rgba(0,0,0,0.4);
+  padding: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
+
+.aviso {
+  margin-bottom: 20px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.chat-area {
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 20px;
+  min-height: 400px;
+  margin-bottom: 20px;
+}
+
+.msg {
+  background: rgba(255,255,255,0.08);
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  resize: none;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0066ff, #000000);
+  color: white;
+  font-size: 16px;
+}
+
+button:hover {
+  box-shadow: 0 0 15px #0066ff;
+}
+</style>
+</head>
+<body>
+
+<header>
+  💬 Chat Privado com o ADM
+</header>
+
+<div class="container">
+
+  <p class="aviso">
+    🔄 Atualize a página para ver novas mensagens e respostas do ADM.
+  </p>
+
+  <div class="chat-area" id="chatArea">
+    <div class="msg">
+      <strong>ADM:</strong> Olá Seguidor! em breve responderei você.
+    </div>
+  </div>
+
+  <textarea id="mensagem" placeholder="Digite sua mensagem..."></textarea>
+
+  <button onclick="enviarMensagem()">Enviar</button>
+
+</div>
+
+<script>
+function enviarMensagem() {
+  const mensagemInput = document.getElementById("mensagem");
+  const mensagem = mensagemInput.value.trim();
+
+  if (!mensagem) {
+    alert("Digite uma mensagem");
+    return;
+  }
+
+  document.getElementById("chatArea").innerHTML += `
+    <div class="msg">
+      <strong>Você:</strong> ${mensagem}
+    </div>
+  `;
+
+  alert("Mensagem enviada com sucesso!");
+
+  mensagemInput.value = "";
+}
+</script>
+
+</body>
+</html>
